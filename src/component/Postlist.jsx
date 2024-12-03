@@ -6,21 +6,21 @@ import WelcomeNote from './welcomeNote'
 function Postlist() {
   const{serverposts,postlist} =useContext(postlistcontext)
 
-  const getwelbtn=()=>{
-      fetch('https://dummyjson.com/posts')
-      .then(res => res.json())
-      .then(data=> {
-        // console.log(data.posts);
+  // const getwelbtn=()=>{
+  //     fetch('https://dummyjson.com/posts')
+  //     .then(res => res.json())
+  //     .then(data=> {
+  //       // console.log(data.posts);
         
-        serverposts(data.posts)
-      });
-      // console.log("get post deletes");
+  //       serverposts(data.posts)
+  //     });
+  //     // console.log("get post deletes");
       
-  }
+  // }
 
   return (
     <>
-    {postlist.length === 0 && <WelcomeNote handlewelbtn={getwelbtn}/>}
+    {postlist.length === 0 && <WelcomeNote />}
     {postlist.map((post)=>
       <Post 
       key={post.id} 

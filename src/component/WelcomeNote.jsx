@@ -1,21 +1,19 @@
 import React, { useContext } from 'react'
 import { postlistcontext } from '../store/postlist_store'
 
-function WelcomeNote({handlewelbtn}) {
+// function WelcomeNote({handlewelbtn}) {
 
-    // function WelcomeNote(){
-    // const{serverposts} =useContext(postlistcontext)
+    function WelcomeNote(){
+    const{serverposts} =useContext(postlistcontext)
 
-    // const handlewelbtn=()=>{
-    //     // fetch('https://dummyjson.com/posts')
-    //     // .then(res => res.json())
-    //     // .then(data=>{
-    //     //     serverposts(data.posts);
-    //     // });
-    //     console.log("get post deletes");
+    const handlewelbtn=()=>{
+        fetch('https://dummyjson.com/posts')
+        .then(res => res.json())
+        .then(data=>{
+            serverposts(data.posts);
+        });
         
-    // }
-
+    }
    
 
   return (

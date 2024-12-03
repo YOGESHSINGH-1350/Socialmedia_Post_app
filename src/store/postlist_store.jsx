@@ -70,7 +70,7 @@ const Postlistcontextprovider = ({ children }) => {
 
 
     const deletepost=(postId)=>{     
-        console.log(`post Deleted ${postId}`);   
+        // console.log(`post Deleted ${postId}`);   
         dispatchedpost({       
             type:'Deleted',
             payload:{
