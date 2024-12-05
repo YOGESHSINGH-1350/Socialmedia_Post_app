@@ -48,6 +48,7 @@ const Postlistcontextprovider = ({ children }) => {
                 tags:tags,
                 reactions:{
                     likes:reaction,
+                    dislikes:reaction,
                 },
                 views:views,
             }

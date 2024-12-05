@@ -1,22 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Post from './post'
 import { postlistcontext } from '../store/postlist_store'
 import WelcomeNote from './welcomeNote'
 
 function Postlist() {
   const{serverposts,postlist} =useContext(postlistcontext)
-
-  // const getwelbtn=()=>{
-  //     fetch('https://dummyjson.com/posts')
-  //     .then(res => res.json())
-  //     .then(data=> {
-  //       // console.log(data.posts);
-        
-  //       serverposts(data.posts)
-  //     });
-  //     // console.log("get post deletes");
-      
-  // }
+  const[datafetched,setdatafetched]=useState("false");
+    if(datafetched==='false'){
+      fetch('https://dummyjson.com/posts')
+      .then(res => res.json())
+      .then(data=> {
+        // console.log(data.posts);
+        serverposts(data.posts)
+      });
+      setdatafetched("true");
+    }
+     // console.log("get post deletes");
 
   return (
     <>

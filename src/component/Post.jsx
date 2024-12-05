@@ -32,7 +32,10 @@ const{deletepost}=useContext(postlistcontext)
 
      
       <div className="alert alert-info" id='reaction' role="alert">
-      {`Reacted By  ${post.reactions.likes}  peoples !`}
+      {`Like By  ${post.reactions.likes}  peoples !`}
+      </div>
+      <div className="alert alert-info" id='reaction' role="alert">
+      {`Dislikes By  ${post.reactions.dislikes}  peoples !`}
       </div>
       <div className="alert alert-success" role="alert">
       {`Viewed by ${post.views} peoples !`}

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { postlistcontext } from '../store/postlist_store'
 
-// function WelcomeNote({handlewelbtn}) {
 
-    function WelcomeNote(){
+
+    function WelcomeNote({}){
     const{serverposts} =useContext(postlistcontext)
 
     const handlewelbtn=()=>{
