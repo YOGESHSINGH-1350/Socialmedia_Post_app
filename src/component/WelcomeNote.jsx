@@ -10,7 +10,7 @@ import { postlistcontext } from '../store/postlist_store'
         fetch('https://dummyjson.com/posts')
         .then(res => res.json())
         .then(data=>{
-            serverposts(data.posts);
+            serverposts(data.posts);            
         });
         
     }
