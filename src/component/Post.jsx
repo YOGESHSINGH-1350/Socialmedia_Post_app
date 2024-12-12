@@ -23,22 +23,23 @@ const{deletepost}=useContext(postlistcontext)
 
 
 
-      {post.tags.map((hashtag)=>
+      {post.tags.map((tags)=>
       <span className="badge rounded-pill text-bg-primary hashtag"
-        key={hashtag}>
-        {hashtag}
+        key={tags}>
+        {tags}
         </span>)}
 
 
-     
-      <div className="alert alert-info" id='reaction' role="alert">
-      {`Like By  ${post.reactions.likes}  peoples !`}
+            
+
+    <div className="alert alert-info" id='reaction' role="alert">
+      Liked by {post.reactions.likes} peoples!
       </div>
-      <div className="alert alert-info" id='reaction' role="alert">
-      {`Dislikes By  ${post.reactions.dislikes}  peoples !`}
-      </div>
+
+
+
       <div className="alert alert-success" role="alert">
-      {`Viewed by ${post.views} peoples !`}
+      Viewed by {post.views} peoples ! 
       </div>
      
     </div>

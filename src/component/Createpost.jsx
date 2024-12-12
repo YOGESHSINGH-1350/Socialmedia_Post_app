@@ -29,10 +29,26 @@ const handleOnClick=(event)=>{
   reactionElement.current.value=""
   viewsElement.current.value=""
 
-
-  addpost(postid,title,titlecontent,hashtags,reaction,views)
-
-
+  fetch('https://dummyjson.com/posts/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: title,
+      userId: postid,
+      body: titlecontent,
+      tags: hashtags,
+      views:views,
+      reactions: {
+        likes:reaction,
+      }
+    })
+  })
+  .then(res => res.json())
+  .then(post => {
+    addpost(post)
+    console.log(post);    
+  })
+  
 }
 
 
@@ -81,7 +97,7 @@ const handleOnClick=(event)=>{
 
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">
-       Your Hashtag
+       Your Hashtags
       </label>
       <input
         type="text"

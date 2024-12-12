@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState,useEffect} from "react";
 
 
 
@@ -6,7 +6,7 @@ export const postlistcontext = createContext(
     {
         postlist: [],
         addpost: () => { },
-        serverposts:()=> { },
+        fetching:false,
         deletepost: () => { },
     }
 )
@@ -25,8 +25,7 @@ const postlistReducer = (currpost, action)=>{
     else if( action.type==='Added'){
         newpostlist=[...currpost,action.payload]
     }
-    
-    
+        
     return newpostlist;
 
 }
@@ -36,22 +35,11 @@ const Postlistcontextprovider = ({ children }) => {
 
     const [postlist, dispatchedpost] = useReducer(postlistReducer, [])
 
-    const addpost=(userid,title,body,tags,reaction,views)=>{
+    const addpost=(post)=>{
 
         dispatchedpost({
             type: 'Added',
-            payload: {
-                id:userid,
-                userid:userid,
-                title: title,
-                description: body,
-                tags:tags,
-                reactions:{
-                    likes:reaction,
-                    dislikes:reaction,
-                },
-                views:views,
-            }
+            payload:post,
         })
             // console.log(`${userid}${title}${titlecontent}${hashtags}${reaction}`);
             
@@ -61,7 +49,7 @@ const Postlistcontextprovider = ({ children }) => {
         dispatchedpost({
             type: 'postbyserver',
             payload: {
-                posts,
+               posts:posts,
             }
         })
             // console.log(`${userid}${title}${titlecontent}${hashtags}${reaction}`);
@@ -82,11 +70,31 @@ const Postlistcontextprovider = ({ children }) => {
     }
 
 
+    const[fetching,setfetching]=useState(false)
+
+    useEffect(()=>{
+    const controller= new AbortController();
+    const signal=controller.signal
+    setfetching(true)
+    fetch('https://dummyjson.com/posts')
+    .then(res => res.json())
+    .then(data=> {
+    //   console.log(data.posts);
+      serverposts(data.posts)
+      setfetching(false)
+    });
+
+    return()=>{
+      controller.abort()
+    }
+  },[])
+
+
     return (
         <postlistcontext.Provider value={{
             postlist,
             addpost,
-            serverposts,
+            fetching,
             deletepost,
         }}>
             {children}
