@@ -4,7 +4,7 @@ import { postlistcontext } from '../store/postlist_store'
 function Post({post}) {
 const{deletepost}=useContext(postlistcontext)
   return (
-    <div className="card postlist postlist" style={{ width: "30rem" }}>
+    <div className="card postlist cpostlist" style={{ width: "30rem" }}>
     <div className="card-body ">
 
       <h5 className='card-title'>{post.title}</h5>
@@ -30,17 +30,17 @@ const{deletepost}=useContext(postlistcontext)
         </span>)}
 
 
-            
+    <div className='alertrec'>
 
-    <div className="alert alert-info" id='reaction' role="alert">
+        <div className="alert alert-info" id='reaction' role="alert">
       Liked by {post.reactions.likes} peoples!
       </div>
-
-
 
       <div className="alert alert-success" role="alert">
       Viewed by {post.views} peoples ! 
       </div>
+
+    </div>       
      
     </div>
   </div>

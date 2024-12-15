@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Slidebar({tab, handleClick}) {
   return (
@@ -18,20 +19,20 @@ function Slidebar({tab, handleClick}) {
     <hr />
     <ul className="nav nav-pills flex-column mb-auto">
       <li className="nav-item" onClick={()=>{handleClick("home")}} >
-        <a href="#" className={`nav-link text-white ${tab==="home" && "active"}`} aria-current="page">
+        <Link to="/postlist" className={`nav-link text-white ${tab==="home" && "active"}`} aria-current="page">
           <svg className="bi pe-none me-2" width={16} height={16}>
             <use xlinkHref="#home" />
           </svg>
           Home
-        </a>
+        </Link>
       </li>
       <li onClick={()=>{handleClick("createpost")}}>
-        <a href="#" className={`nav-link text-white ${tab==="createpost" && "active"}`} >
+        <Link to="/create-post" className={`nav-link text-white ${tab==="createpost" && "active"}`} >
           <svg className="bi pe-none me-2" width={16} height={16}>
             <use xlinkHref="#speedometer2" />
           </svg>
           Create Post
-        </a>
+        </Link>
       </li>
     </ul>
     <hr />

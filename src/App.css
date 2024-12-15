@@ -14,7 +14,7 @@
 
 /* Creat_post */
 .createpost{
-    width: 100%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     margin: 5% 40%;
@@ -41,6 +41,7 @@
 
 
 /* Postlist */
+
 .hashtag{
     margin: 0 3px;
     font-style:italic;
@@ -57,7 +58,13 @@
 }
 .postlist{
     margin: 20px 20px;
+
 }
+
+
+
+
+/* alert */
 
 /* welcomenote */
 .welcomenote{

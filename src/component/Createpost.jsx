@@ -1,10 +1,12 @@
 import React, { useRef } from 'react'
 import { useContext } from 'react'
 import { postlistcontext } from '../store/postlist_store'
+import { useNavigate } from 'react-router-dom'
 
 function Createpost() {
 
   const{addpost}=useContext(postlistcontext)
+  const navigate=useNavigate()
 
 const useridElement=useRef()
 const titleElement=useRef()
@@ -20,14 +22,14 @@ const handleOnClick=(event)=>{
   const titlecontent=titlecontentElement.current.value
   const hashtags=hashtagsElement.current.value.split(' ')
   const reaction=reactionElement.current.value
-  const views=viewsElement.current.value
+ 
 
   useridElement.current.value=""
   titleElement.current.value=""
   titlecontentElement.current.value=""
   hashtagsElement.current.value=""
   reactionElement.current.value=""
-  viewsElement.current.value=""
+  
 
   fetch('https://dummyjson.com/posts/add', {
     method: 'POST',
@@ -37,7 +39,6 @@ const handleOnClick=(event)=>{
       userId: postid,
       body: titlecontent,
       tags: hashtags,
-      views:views,
       reactions: {
         likes:reaction,
       }
@@ -46,8 +47,12 @@ const handleOnClick=(event)=>{
   .then(res => res.json())
   .then(post => {
     addpost(post)
-    console.log(post);    
+    console.log(post);  
+    navigate("/postlist")  
   })
+   
+ 
+
   
 }
 
@@ -118,19 +123,6 @@ const handleOnClick=(event)=>{
         className="form-control"
         id=""
         placeholder='No. of Reaction'
-      />
-    </div>
-
-    <div className="mb-3">
-      <label htmlFor="exampleInputEmail1" className="form-label">
-      Number of  Viewed people
-      </label>
-      <input
-        type="text"
-        ref={viewsElement}
-        className="form-control"
-        id=""
-        placeholder='No. of viewed people '
       />
     </div>
 

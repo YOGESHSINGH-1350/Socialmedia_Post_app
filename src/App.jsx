@@ -8,6 +8,7 @@ import Createpost from "./component/Createpost";
 import Postlist from "./component/Postlist";
 import { useState } from "react";
 import Postlistcontextprovider from "./store/postlist_store";
+import { Outlet } from "react-router-dom";
 
 function App() {
 
@@ -25,12 +26,11 @@ function App() {
 
         <div className="content">
           <Header></Header>
-
+          
           <div className="main_content">
-          {selectedtab==="createpost" ? <Createpost> </Createpost >: <Postlist></Postlist> }
-         
+          <Outlet></Outlet>
           </div>
-              
+         
           <Footer></Footer>
         </div>
     </div>
