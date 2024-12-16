@@ -19,7 +19,7 @@ function Slidebar({tab, handleClick}) {
     <hr />
     <ul className="nav nav-pills flex-column mb-auto">
       <li className="nav-item" onClick={()=>{handleClick("home")}} >
-        <Link to="/postlist" className={`nav-link text-white ${tab==="home" && "active"}`} aria-current="page">
+        <Link to="/" className={`nav-link text-white ${tab==="home" && "active"}`} aria-current="page">
           <svg className="bi pe-none me-2" width={16} height={16}>
             <use xlinkHref="#home" />
           </svg>

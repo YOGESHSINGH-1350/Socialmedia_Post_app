@@ -70,31 +70,32 @@ const Postlistcontextprovider = ({ children }) => {
     }
 
 
-    const[fetching,setfetching]=useState(false)
+    //no need to use this because we use router loader in postlist
 
-    useEffect(()=>{
-    const controller= new AbortController();
-    const signal=controller.signal
-    setfetching(true)
-    fetch('https://dummyjson.com/posts')
-    .then(res => res.json())
-    .then(data=> {
-    //   console.log(data.posts);
-      serverposts(data.posts)
-      setfetching(false)
-    });
+//     const[fetching,setfetching]=useState(false)
 
-    return()=>{
-      controller.abort()
-    }
-  },[])
+//     useEffect(()=>{
+//     const controller= new AbortController();
+//     const signal=controller.signal
+//     setfetching(true)
+//     fetch('https://dummyjson.com/posts')
+//     .then(res => res.json())
+//     .then(data=> {
+//     //   console.log(data.posts);
+//       serverposts(data.posts)
+//       setfetching(false)
+//     });
+
+//     return()=>{
+//       controller.abort()
+//     }
+//   },[])
 
 
     return (
         <postlistcontext.Provider value={{
             postlist,
             addpost,
-            fetching,
             deletepost,
         }}>
             {children}
