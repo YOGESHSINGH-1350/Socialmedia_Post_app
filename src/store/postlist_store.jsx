@@ -104,23 +104,6 @@ const Postlistcontextprovider = ({ children }) => {
 }
 
 
-// const default_postlist=[
-//     {
-//     id:"11",
-//     title: "Going to Manali",
-//     description: "Hello Everyone, I am going to Manali. Hope Enjoying Alot",
-//     hashtag:['manali','enjoy','moment'],
-//     reactions:'5'
-//     },
-//     {
-//     id:"15",
-//     title: "Autobots",
-//     description: "My name is Optiums Prime. Leader of matrix ",
-//     hashtag:['autobot','matrix','movies'],
-//     reactions:'15'
-//     },
-    
-// ]
 
 
 export default Postlistcontextprovider;
